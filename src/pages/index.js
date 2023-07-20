@@ -38,7 +38,7 @@ export default function Home() {
           <div className='flex items-center justify-center'>
           <div className='flex flex-col items-center'>
           <span>&#128591;</span>
-          <h3 className="font-medium">Olá, faça login.</h3>
+          <h3 className="font-bold">Olá, faça login.</h3>
           </div>
           </div>
             <form className="flex items-center flex-col mt-5" onSubmit={handleSubmit}>
@@ -64,7 +64,7 @@ export default function Home() {
                 type="submit" 
                 name="submit" 
                 value="Entrar"
-                className={`mt-8 p-2.5 px6 bg-dark text-light rounded-md shadow-lg w-96`} 
+                className={`mt-8 p-2.5 px6 bg-lime-950 text-light rounded-md shadow-lg w-96`} 
               />
             </form>
         </Layout>
