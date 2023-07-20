@@ -3,10 +3,27 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Layout from '@/components/Layout'
+import { useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  
+    const user = {
+      email,
+      password,
+    }
+    console.log(user)
+  }
+
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <>
       <Head>
@@ -15,11 +32,41 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className="flex items-center text-dark w-full min-h-screen dark:text-light">
         <Layout className="pt-0 md:pt-16 sm:pt-8">
-          <div className="flex justify-center">
-            <h2>Olá, <span>&#128075;</span></h2>
+
+          <div className='flex items-center justify-center'>
+          <div className='flex flex-col items-center'>
+          <span>&#128591;</span>
+          <h3 className="font-medium">Olá, faça login.</h3>
           </div>
+          </div>
+            <form className="flex items-center flex-col mt-5" onSubmit={handleSubmit}>
+              <input 
+                type="email" 
+                name="email" 
+                placeholder="email@exemplo.com"
+                onChange={(e) => setEmail(e.target.value)}
+                // value={email || ""}  
+                className='mt-8 rounded-md shadow-lg w-96'
+              />
+
+              <input 
+                type="password" 
+                name="password" 
+                placeholder="senha.."
+                onChange={(e) => setPassword(e.target.value)}
+                // value={password || ""} 
+                className='mt-8 rounded-md shadow-lg w-96'   
+              />
+
+              <input 
+                type="submit" 
+                name="submit" 
+                value="Entrar"
+                className={`mt-8 p-2.5 px6 bg-dark text-light rounded-md shadow-lg w-96`} 
+              />
+            </form>
         </Layout>
       </main>
     </>
